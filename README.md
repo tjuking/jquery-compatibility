@@ -14,10 +14,4 @@ jQuery兼容性研究
 - 在IE7-浏览器中使用`(new Function("return " + data))()`将字符串转换JSON，如果未移除传入字符串开头和结尾的空白符就无法正确的解析
 - 在IE8-浏览器中不支持ECMAScript5中指定的JSON对象及其方法
 - 在IE8-浏览器中不支持`window.DOMParser`对象解析，可以使用`ActiveXObject`对象来解析XML
-- 要想在全局作用域下执行字符串脚本，必须（为了兼容IE、Chrome和Firefox详情可参考[https://weblogs.java.net/blog/driscoll/archive/2009/09/08/eval-javascript-global-context](https://weblogs.java.net/blog/driscoll/archive/2009/09/08/eval-javascript-global-context)，对于Chrome的那个修正现在应该是不需要了）：
-
-
-
-      `(window.execScript || function(data){
-          window["eval"].call(window, data);
-      })(data);`
+- 要想在全局作用域下执行字符串脚本，必须（为了兼容IE、Chrome和Firefox详情可参考[https://weblogs.java.net/blog/driscoll/archive/2009/09/08/eval-javascript-global-context](https://weblogs.java.net/blog/driscoll/archive/2009/09/08/eval-javascript-global-context)，对于Chrome的那个修正现在应该是不需要了）：`(window.execScript || function(data){window["eval"].call(window, data);})(data);`
