@@ -16,3 +16,4 @@ jQuery兼容性研究
 - 在IE8-浏览器中不支持`window.DOMParser`对象解析，可以使用`ActiveXObject`对象来解析XML
 - 要想在全局作用域下执行字符串脚本，必须（为了兼容IE、Chrome和Firefox详情可参考[https://weblogs.java.net/blog/driscoll/archive/2009/09/08/eval-javascript-global-context](https://weblogs.java.net/blog/driscoll/archive/2009/09/08/eval-javascript-global-context)，对于Chrome的那个修正现在应该是不需要了）：`(window.execScript || function(data){window["eval"].call(window, data);})(data);`
 - 在IE浏览器中连字符样式属性名例如`-ms-transform`对应的style属性是`msTransform`而通常其他浏览器中都是连字符后首字母大写，例如`MozTransform`（在`.camelCase(string)`方法中需要特殊处理一下）
+- 在IE8-浏览器中，`\s`不匹配不间断空格`\xA0`（non-breaking space），需要为`.trim(str)`方法里的正则特殊处理一下
