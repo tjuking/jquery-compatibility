@@ -11,3 +11,5 @@ jQuery兼容性研究
 - 在IE7-浏览器中通过innerHTML机制将复选框和单选框按钮插入DOM树后，其选中状态checked会丢失（通过赋值`defaultChecked`解决，此时的`jQuery.support.appendChecked`为`false`）
 - 在IE8-浏览器中通过`Object.prototype.toString(xxx)`应用到操作DOM的方法或者类似于`alert`这样的方法，将得到`[object Object]`而非`[object Function]`
 - 在IE9-浏览器中访问某些浏览器宿主对象例如location的`location.constructor.prototype`会抛出异常，需要`try/catch`
+- 在IE7-浏览器中使用`(new Function("return " + data))()`将字符串转换JSON，如果未移除传入字符串开头和结尾的空白符就无法正确的解析
+- IE8-浏览器中不支持ECMAScript5中指定的JSON对象及其方法
