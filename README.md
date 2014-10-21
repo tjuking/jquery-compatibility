@@ -22,3 +22,4 @@ jQuery兼容性研究
 - IE9-浏览器中触发事件时不会把原生事件对象传给监听函数，要通过`window.event`来获取
 - IE9-浏览器中如果在`table`元素上访问含有冒号的属性，会抛出一个异常：无效的过程调用或参数
 - IE9-浏览器中在隐藏元素上触发默认行为`focus/blur()`会抛出异常
+- IE9-和Firefox中通过调用原生方法`addEventListener/attachEvent`绑定`beforeunload`事件的回调函数不会被触发，解决方法就是`<body onbeforeunload="handler">`或者`window.onbeforeunload = handler;`
