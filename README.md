@@ -19,3 +19,4 @@ jQuery兼容性研究
 - 在IE8-浏览器中，`\s`不匹配不间断空格`\xA0`（non-breaking space，还需要处理`\uFEFF`--Byte Order Mark），需要为`.trim(str)`方法里的正则特殊处理一下
 - 在Blackberry4.7中，正则对象也有length属性
 - Javascript和DOM元素之间循环引用会导致IE6-7的垃圾回收机制不起作用，内存泄漏，所以jQuery为DOM元素存储数据是在`jQuery.cache`里
+- IE9-浏览器中触发事件时不会把原生事件对象传给监听函数，要通过`window.event`来获取
